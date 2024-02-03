@@ -1,0 +1,49 @@
+.note-div {
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid #000;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.show-note {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.plus-icon {
+  font-size: 5rem;
+}
+
+.set-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.set-icon:hover {
+  opacity: 0.5;
+}
+
+.add-more-btn {
+  text-decoration: none;
+}
+
+.card-body {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-text {
+  --max-lines: 3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+}
