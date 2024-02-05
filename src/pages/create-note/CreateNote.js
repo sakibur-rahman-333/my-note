@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input, Button } from "reactstrap";
+import { Form, FormGroup, Input, Button, Alert } from "reactstrap";
 import "./CreateNote.css";
 
 class CreateNote extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      showAlert: false,
+    };
   }
 
   handleSubmit = (e) => {
@@ -36,32 +39,41 @@ class CreateNote extends Component {
     );
     e.target.elements.noteTitle.value = "";
     e.target.elements.note.value = "";
+    this.setState({
+      showAlert: true,
+    });
   };
 
   render() {
+    const showAlert = this.state.showAlert ? (
+      <Alert color="primary">Note created successfully!.</Alert>
+    ) : null;
     return (
-      <Form className="create-form" onSubmit={this.handleSubmit}>
-        <FormGroup>
-          <h3>Note title</h3>
-          <Input
-            name="noteTitle"
-            placeholder="Title of the note..."
-            type="text"
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <h3>Note</h3>
-          <Input
-            className="text-area"
-            name="note"
-            type="textarea"
-            placeholder="Write what to save..."
-            required
-          />
-        </FormGroup>
-        <Button type="submit">Save</Button>
-      </Form>
+      <>
+        <Form className="create-form" onSubmit={this.handleSubmit}>
+          {showAlert}
+          <FormGroup>
+            <h3>Note title</h3>
+            <Input
+              name="noteTitle"
+              placeholder="Title of the note..."
+              type="text"
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <h3>Note</h3>
+            <Input
+              className="text-area"
+              name="note"
+              type="textarea"
+              placeholder="Write what to save..."
+              required
+            />
+          </FormGroup>
+          <Button type="submit">Save</Button>
+        </Form>
+      </>
     );
   }
 }

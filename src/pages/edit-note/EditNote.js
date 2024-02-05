@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input, Button } from "reactstrap";
+import { Form, FormGroup, Input, Button, Alert } from "reactstrap";
 import "./EditNote.css";
 import { connect } from "react-redux";
 import myStore from "../../redux/Store";
@@ -11,6 +11,12 @@ const mapStateToProps = (state) => {
 };
 
 class EditNote extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showAlert: false,
+    };
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     const key = this.props.editableNote.key;
@@ -39,14 +45,22 @@ class EditNote extends Component {
     );
     e.target.elements.noteTitle.value = "";
     e.target.elements.note.value = "";
+
+    this.setState({
+      showAlert: true,
+    });
     myStore.dispatch({
       type: "ITEM_UNSELECTED",
       value: "",
     });
   };
   render() {
+    const showAlert = this.state.showAlert ? (
+      <Alert color="primary">Note updated successfully!.</Alert>
+    ) : null;
     return (
       <Form className="create-form" onSubmit={this.handleSubmit}>
+        {showAlert}
         <FormGroup>
           <h3>Note title</h3>
           <Input
