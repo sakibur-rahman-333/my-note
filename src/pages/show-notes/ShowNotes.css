@@ -48,9 +48,4 @@
   -webkit-line-clamp: var(--max-lines);
 }
 
-.align-cards {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 1rem;
-}
+

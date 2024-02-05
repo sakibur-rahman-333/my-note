@@ -12,6 +12,7 @@ import {
   ModalHeader,
   ModalFooter,
 } from "reactstrap";
+import myStore from "../../redux/Store";
 
 class ShowNotes extends Component {
   constructor(props) {
@@ -35,6 +36,10 @@ class ShowNotes extends Component {
   }
 
   handleView = (item) => {
+    myStore.dispatch({
+      type: "ITEM_SELECTED",
+      value: item,
+    });
     this.setState({
       selectedNote: item,
       modalOpen: true,
@@ -42,6 +47,10 @@ class ShowNotes extends Component {
   };
 
   handleCancel = () => {
+    myStore.dispatch({
+      type: "ITEM_UNSELECTED",
+      value: "",
+    });
     this.setState({
       selectedNote: null,
       modalOpen: false,
@@ -65,7 +74,7 @@ class ShowNotes extends Component {
                   width: "18rem",
                   marginRight: "1rem",
                 }}
-                key={Math.random()}
+                key={item.key}
               >
                 <CardHeader>{item.noteTitle}</CardHeader>
                 <CardBody className="card-body">
@@ -101,7 +110,7 @@ class ShowNotes extends Component {
         </Modal>
       ) : null;
     return (
-      <div className="show-note align-cards">
+      <div className="show-note">
         {show}
         {modal}
       </div>
