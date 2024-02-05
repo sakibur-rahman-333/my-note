@@ -101,7 +101,7 @@ class ShowNotes extends Component {
         </Modal>
       ) : null;
     return (
-      <div className="show-note">
+      <div className="show-note align-cards">
         {show}
         {modal}
       </div>
