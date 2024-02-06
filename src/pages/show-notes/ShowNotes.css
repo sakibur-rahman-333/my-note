@@ -12,6 +12,8 @@
 .show-note {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .plus-icon {
@@ -47,5 +49,3 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: var(--max-lines);
 }
-
-

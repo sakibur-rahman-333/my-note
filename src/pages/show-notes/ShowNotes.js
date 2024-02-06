@@ -61,6 +61,10 @@ class ShowNotes extends Component {
     const key = this.state.selectedNote.key;
     localStorage.removeItem(key);
     this.handleCancel();
+    this.setState({
+      selectedNote: null,
+    });
+    this.componentDidMount();
   };
   render() {
     const data = this.state.data;
