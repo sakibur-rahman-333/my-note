@@ -1,0 +1,13 @@
+.contract-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img-resize {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  border: 2px solid #000;
+}
