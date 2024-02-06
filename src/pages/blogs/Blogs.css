@@ -1,0 +1,10 @@
+.resize-img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  border: 2px solid #000;
+}
+
+.blog {
+  padding: 1rem;
+}
